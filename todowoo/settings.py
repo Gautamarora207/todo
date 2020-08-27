@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 'v5#8nw*b65p9w-y#=9*rzztkv6dbs9+6-vq4n@$400+9e6p$7&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['todo2.pythonanywhere.com']
 
 
 # Application definition
@@ -121,3 +121,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_URL = '/login/'
+
+try :
+    from .local_settings import *
+
+except ImportError:
+    print("No local_settings file.You must be on production.")
